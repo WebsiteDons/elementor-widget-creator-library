@@ -115,9 +115,13 @@ Used to insert placeholder field attribute for types of text, textarea
 
 
 ## Fieldset Attributes
-The `<fieldset>` is required to create the accordion panels and create a wrapper around controls
-### id
-This is required to create a unique identity for the panel
+The `<fieldset>` is required to create the accordion panels and create a wrapper around controls. It only uses the 4 listed below
+### id, tab, note, label
+
+* The **id** is obviously required to create a **unique** identity for the panel
+* The **tab** is required to determine what group the fieldset will be inserted options are tab | tabstyle | tabadv
+* The **note** is optional to state a descriptive message immediately below the panel heading when opened
+* The **label** is required to label the panel head
 ```xml
 <fieldset id="thegroup" tab="tab" note="A message that displays below the panel tab" label="User Stuff">
     <field />
