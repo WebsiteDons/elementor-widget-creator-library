@@ -50,3 +50,20 @@ Set a condition for a specific to be in view if the value of a corresponding fie
 ```xml
 <field condition="{'fieldname-to-check': 'value-match','other-field-check': '!value-not-match'}" />
 ```
+### options
+Used in association with types of **list** and **list2** and **radio**
+```xml
+<field options="{'opt-value': 'The first choice','opt-value2': 'The other choice'}" />
+```
+An **associative** array from a know variable, constant, function, class method can be used. Methods:
+```xml
+<field options="{'funcName': 'argument'}" />
+<field options="{'cmse::funcName': 'argument'}" />
+```
+If an **associative** array is store in a variable, the index **must** be keyword **var** and the value be the name of the variable without **$**
+```php
+$varname = ['choice'=>'The text','choice2'=>'More text'];
+```
+```xml
+<field options="{'var': 'varname'}" />
+```
