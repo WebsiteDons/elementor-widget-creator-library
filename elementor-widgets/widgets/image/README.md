@@ -132,15 +132,15 @@ The `<fieldset>` is required to create the accordion panels and create a wrapper
 The `<form>` tag attributes creates the widget element in the widgets list
 ### icon, cat
 
-* The **icon** is required to visually clarify the widget's purpose ![Get Elementor icons](https://elementor.github.io/elementor-icons/)
-* The **cat** is required to determine the widget group where the widget will be listed. Available Elementor core groups are basic | pro-elements | general | wordpress | woocommerce-elements
+* The **icon** is to visually clarify the widget's purpose. A default is set in the constants. ![Get Elementor icons](https://elementor.github.io/elementor-icons/)
+* The **cat** is **required** to determine the widget group where the widget will be listed. Available Elementor core groups are basic | pro-elements | general | wordpress | woocommerce-elements
 
 Your custom category **must** be set via constants file `constants.php` where set names are: PANELID and PANELCAT and PANELICON
 ```php
 // widgets panel section ID, icon and name
 'panelid'		=>	'my-widgetcat',
 'panelcat'		=>	'My Great Widgets',
-'panelicon'		=>	'eicon-apps',
+'panelicon'		=>	'eicon-apps', // a default icon if none is set in xml
 ```
 
 ```xml
