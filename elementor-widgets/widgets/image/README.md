@@ -75,3 +75,8 @@ $varname = ['choice'=>'The text','choice2'=>'More text'];
 ```xml
 <field options="{'var': 'varname'}" />
 ```
+### gtype
+Used in asso,ciation with type **controlgroup** to define the group fields which will be used: background | border | typography | box_shadow | text_shadow
+```xml
+<field type="controlgroup" gtype="border" />
+```
