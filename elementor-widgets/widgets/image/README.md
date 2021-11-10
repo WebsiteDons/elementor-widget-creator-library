@@ -102,4 +102,9 @@ Used in associtiaon with type **textarea** to define height by horizontal row co
 ```xml
 <field type="textarea" rows="10" />
 ```
+### note
+Used to write a plain text description below the control. This can include HTML written as html encoded entity eg: `&lt;strong&gt;The word&lt;/strong&gt;` This can be quite tedious and confusion so use is purely user choice.
+```xml
+<field note="This field is for field struff" />
+```
 
