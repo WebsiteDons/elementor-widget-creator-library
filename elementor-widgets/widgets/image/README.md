@@ -80,3 +80,8 @@ Used in asso,ciation with type **controlgroup** to define the group fields which
 ```xml
 <field type="controlgroup" gtype="border" />
 ```
+### gtypes
+This attribute delivers the variants of certain group controls. Maybe it should be called variants, but gtypes was chosen to assert association and lessen confusion.
+```xml
+<field type="controlgroup" gtype="bg" gtypes="classic,gradient,video" />
+```
