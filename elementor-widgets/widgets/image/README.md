@@ -8,3 +8,7 @@ The value is passed to Elementpr's preview update to apply the CSS changes as ma
 ```xml
 <field selectors="{{WRAPPER}} .myclass" />
 ```
+**Example** to pass an array that uses `selectors` to pass element class, CSS property and value
+```xml
+<field selectors="{'{{WRAPPER}} .myclass': 'color: {{VALUE}}'}" />
+```
