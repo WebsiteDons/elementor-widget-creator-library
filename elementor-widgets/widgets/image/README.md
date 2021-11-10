@@ -78,9 +78,9 @@ $varname = ['choice'=>'The text','choice2'=>'More text'];
 ### onchange
 Used in association with type **list** to execute an action on another field when a change of option is triggered, and update the preview window on certain commands. Using jQuery methods. Available options **val** `val()` | **alert** `css("background","yellow")` not the JS alert dialogue, just to highlight a field that must be used in association with the selection.
 
-The following format is set to pass the value of selected option to the field named `layout`.
+The following format is set to pass the value of selected option to the field named `layout` when a specific option value is selected. The last argument is optional. When not specified, any option selected will trigger the action.
 ```xml
-<field type="list" onchange="layout,val" />
+<field type="list" onchange="layout,val,on-this-option-val" />
 ```
 ### gtype
 Used in asso,ciation with type **controlgroup** to define the group fields which will be used: background | border | typography | box_shadow | text_shadow
@@ -106,5 +106,21 @@ Used in associtiaon with type **textarea** to define height by horizontal row co
 Used to write a plain text description below the control. This can include HTML written as html encoded entity eg: `&lt;strong&gt;The word&lt;/strong&gt;` This can be quite tedious and confusion so use is purely user choice.
 ```xml
 <field note="This field is for field struff" />
+```
+### hint
+Used to insert placeholder field attribute for types of text, textarea
+```xml
+<field type="text" hint="eg: https://googly.com" />
+```
+
+
+## Fieldset Attributes
+The `<fieldset>` is required to create the accordion panels and create a wrapper around controls
+### id
+This is required to create a unique identity for the panel
+```xml
+<fieldset id="thegroup" tab="tab" note="A message that displays below the panel tab" label="User Stuff">
+    <field />
+</fieldset>
 ```
 
