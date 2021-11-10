@@ -138,11 +138,14 @@
      <!-- STYLE tab group -->
      <fieldset id="itemstyle" tab="tabstyle" note="Set the styling of stuff" label="Item Styling">
 	     <field
-		    type="controlgroup"
-		    gtype="bg"
-		    gtypes="classic,gradient"
-		    name="setbgcolor"
+		    type="controlgroup" 
+		    gtype="bg" 
+		    gtypes="classic,gradient" 
+		    name="setbgcolor" 
 		    label="Set background"
+		    selectors="{
+			'{{WRAPPER}} .myclass':'background: {{VALUE}}'
+			}"
 		    />
 	     <field
 		    type="controlgroup"
@@ -154,6 +157,9 @@
 		    type="color"
 		    name="btncolor"
 		    label="Color a button background"
+		    selectors="{
+			'{{WRAPPER}} a':'background: {{VALUE}}'
+			}"
 		    />
 	     <field 
 		    type="code"
