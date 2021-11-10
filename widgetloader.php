@@ -3,7 +3,7 @@
 Plugin Name: CMSE Elementor Widget Developer Library
 Plugin URI: https://github.com/WebsiteDons/elementor-widget-creator-library
 Description: Develop widgets for Elementor with intuitive markup
-Version: 1.0.9
+Version: 1.0.10
 Author: CMSEnergizer.com
 Author URI: https://github.com/WebsiteDons/elementor-widget-creator-library
 Copyright 2014 CMSEnergizer.com
@@ -24,7 +24,7 @@ use \Elementor\Shapes;
 
 final class Cmse_Elementor_Widgets 
 {
-	const VERSION = '1.0.9';
+	const VERSION = '1.0.10';
 	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
 	const MINIMUM_PHP_VERSION = '7.0';
 
@@ -408,8 +408,7 @@ final class Cmse_Elementor_Widgets
 		//selectors
 		$selectors=[];
 		if( isset($att->selectors) ) {
-			list($classes,$cssval) = explode('|',(string)$att->selectors);
-			$selectors[$classes] = $cssval;
+			$selectors = self::stringToArray((string)$att->selectors);
 		}
 		
 		//configs
