@@ -152,6 +152,7 @@
 		    gtype="typo"
 		    name="fontyset"
 		    label="Font typography"
+		    selectors="{{WRAPPER}} .myclass"
 		    />
 	     <field 
 		    type="color"
