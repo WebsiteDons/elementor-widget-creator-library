@@ -40,3 +40,13 @@ A method to align control containers vertically. Most elements align horizontall
 ```xml
 <field labelblock="1" />
 ```
+### default
+Set the default value for a field
+```xml
+<field default="Host Mike Palmer" />
+```
+### condition
+Set a condition for a specific to be in view if the value of a corresponding field or array of fields match the set values
+```xml
+<field condition="{'fieldname-to-check': 'value-match','other-field-check': '!value-not-match'}" />
+```
