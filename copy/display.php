@@ -4,6 +4,7 @@ defined('ABSPATH') || exit('CMSEnergizer.com');
 /*
 Elementor Widget: widgetname
 Developer Guide: https://github.com/WebsiteDons/elementor-widget-creator-library
+Example HTML output
 */
 
 ?>
