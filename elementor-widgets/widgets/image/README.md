@@ -128,3 +128,17 @@ The `<fieldset>` is required to create the accordion panels and create a wrapper
 </fieldset>
 ```
 
+## Form Attributes
+The `<form>` tag attributes creates the widget element in the widgets list
+### icon, cat
+
+* The **icon** is required to visually clarify the widget's purpose ![Get Elementor icons](https://elementor.github.io/elementor-icons/)
+* The **cat** is required to determine the widget group where the widget will be listed. Available Elementor core groups are basic | pro
+
+```xml
+<form icon="eicon-play-o" cat="my-wdgets-group">
+    <fieldset>
+        <field />
+    </fieldset>
+</form>
+```
