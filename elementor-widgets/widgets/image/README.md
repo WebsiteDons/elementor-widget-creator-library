@@ -75,6 +75,13 @@ $varname = ['choice'=>'The text','choice2'=>'More text'];
 ```xml
 <field options="{'var': 'varname'}" />
 ```
+### onchange
+Used in association with type **list** to execute an action on another field when a change of option is triggered, and update the preview window on certain commands. Using jQuery methods. Available options **val** `val()` | **alert** `css("background","yellow")` not the JS alert dialogue, just to highlight a field that must be used in association with the selection.
+
+The following format is set to pass the value of selected option to the field named `layout`.
+```xml
+<field type="list" onchange="layout,val" />
+```
 ### gtype
 Used in asso,ciation with type **controlgroup** to define the group fields which will be used: background | border | typography | box_shadow | text_shadow
 ```xml
@@ -85,3 +92,14 @@ This attribute delivers the variants of certain group controls. Maybe it should 
 ```xml
 <field type="controlgroup" gtype="bg" gtypes="classic,gradient,video" />
 ```
+### min and max
+Used in association with type **num** a number type
+```xml
+<field type="num" min="0" max="50" />
+```
+### rows
+Used in associtiaon with type **textarea** to define height by horizontal row count
+```xml
+<field type="textarea" rows="10" />
+```
+
