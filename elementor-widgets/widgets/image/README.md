@@ -20,3 +20,13 @@ Array
     [{{WRAPPER}} .myclass] => color: {{VALUE}}
 )
 ```
+### type
+Set the control type
+```xml
+<field type="text" />
+```
+### name
+Set the field name. Also used for the control's parent wrapper element class append `elementor-control-myfieldname`. All field names **must be unique**.
+```xml
+<field name="myfieldname" />
+```
