@@ -68,7 +68,7 @@ From a class using **static** method
 ```xml
 <field options="{'cmse::funcName': 'posts,products'}" />
 ```
-If an **associative** array is store in a variable, the index **must** be keyword **var** and the value be the name of the variable without **$**
+If an **associative** array is stored in a variable, and **available in the widget's pilot file** where method name is `_register_controls()`, the index **must** be keyword **var** and the value be the name of the variable without **$**
 ```php
 $varname = ['choice'=>'The text','choice2'=>'More text'];
 ```
