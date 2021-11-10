@@ -55,10 +55,18 @@ Used in association with types of **list** and **list2** and **radio**
 ```xml
 <field options="{'opt-value': 'The first choice','opt-value2': 'The other choice'}" />
 ```
-An **associative** array from a know variable, constant, function, class method can be used. Methods:
+An **associative** array from a set variable, defined constant, public function, class method can be used. Methods:
+```php
+public function funcName($argument) {
+  return getCategories($argument);
+}
+```
 ```xml
-<field options="{'funcName': 'argument'}" />
-<field options="{'cmse::funcName': 'argument'}" />
+<field options="{'funcName': 'posts,products'}" />
+```
+From a class using **static** method
+```xml
+<field options="{'cmse::funcName': 'posts,products'}" />
 ```
 If an **associative** array is store in a variable, the index **must** be keyword **var** and the value be the name of the variable without **$**
 ```php
