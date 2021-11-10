@@ -1,5 +1,5 @@
 # XML Attributes
-**Impotant** where values must be passed as array to Elementor, the method is in JSON object format and **must** use **single quotes** as the delimiter  eg: `{'the keey': 'The Value'}`
+**Impotant** where values must be passed as array to Elementor, the method is in JSON object format and **must** use **single quotes** as the delimiter, the obvious reason being that double quotes are used for the XML attributes and there will be conflict and error.  eg: `condition="{'the-keey': 'The Value'}"`
 
 ### selectors
 The value is passed to Elementpr's preview update to apply the CSS changes as made in real time.
