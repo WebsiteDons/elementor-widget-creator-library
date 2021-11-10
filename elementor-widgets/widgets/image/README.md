@@ -1,4 +1,5 @@
 # XML Attributes
+**Impotant** where values must be passed as array to Elementor, the method is in JSON object format and **must** use **single quotes** as the delimiter  eg: `{'the keey': 'The Value'}`
 
 ### selectors
 The value is passed to Elementpr's preview update to apply the CSS changes as made in real time.
@@ -8,7 +9,7 @@ The value is passed to Elementpr's preview update to apply the CSS changes as ma
 ```xml
 <field selectors="{{WRAPPER}} .myclass" />
 ```
-**Example** to pass an array that uses plural `selectors` to pass element class names, CSS property and value. Note the open and closing JSON object brackets used along with single quote delimiters and **:** colon. All characters within single quotes will be treated as string
+**Example** to pass an array that uses plural `selectors` to pass element class names, CSS property and value. Note the open and closing JSON object brackets used along with **single quote** delimiters and **:** colon. All characters within single quotes will be treated as string
 ```xml
 <field selectors="{'{{WRAPPER}} .myclass': 'color: {{VALUE}}'}" />
 ```
