@@ -30,3 +30,13 @@ Set the field name. Also used for the control's parent wrapper element class app
 ```xml
 <field name="myfieldname" />
 ```
+### label
+The label displayed on the page
+```xml
+<field label="The Show Host" />
+```
+### labelblock
+A method to align control containers vertically. Most elements align horizontally by default with the label on the left and field on right. This only uses boolean true|false, similar to 1|0
+```xml
+<field labelblock="1" />
+```
