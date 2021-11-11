@@ -95,6 +95,7 @@ final class Cmse_Elementor_Widgets
 					/* register custom controls if exists
 					See development docs at https://developers.elementor.com/creating-a-new-control/
 					*/
+					/*
 					add_action('elementor/controls/controls_registered', function() {
 						global $cmse;
 						if( file_exists($cmse('customcontrol').'/control.php') ) {
@@ -103,6 +104,7 @@ final class Cmse_Elementor_Widgets
 							$mgr->register_control(\Cmse_FG::FG, new \Cmse_FG());
 						}
 					});
+					*/
 					
 					
 					/* add section separator custom shapes
