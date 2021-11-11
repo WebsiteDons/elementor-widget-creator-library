@@ -175,13 +175,26 @@ A standard option select field
 Output as
 ```html
 <select id="elementor-control-default-c1382" data-setting="layoutpreset">
-<option value="[aplayer]">Audio Player Only</option>
-<option value="[foot][aplayer][clock][/foot]">Fixed Foot Player</option>
-<option value="[schedulewrap][onair][schedule][/schedulewrap]">Schedule with on air</option>
+<option value="aplayer">Audio Player</option>
+<option value="foot">Fixed Foot Player</option>
+<option value="schedule">Schedule Table</option>
 </select>
 ```
+### list2
+A select2 searchable jQuery plugin option select field with search
 
-list2 - select2 select field with search
+Output as
+```html
+<div class="elementor-control-input-wrapper elementor-control-unit-5">
+	<select id="elementor-control-default-c1921" class="elementor-select2 select2-hidden-accessible" type="select2" data-setting="svgbg" data-select2-id="elementor-control-default-c1921" tabindex="-1" aria-hidden="true">
+		<option value="angle2" data-select2-id="47">angle2</option>
+		<option value="angle4" data-select2-id="48">angle4</option>
+		<option value="angular" data-select2-id="49">angular</option>
+	</select>
+    <span class="select2 select2-container select2-container--default select2-container--below select2-container--focus" dir="ltr" data-select2-id="44" style="width: auto;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-elementor-control-default-c1921-container"><span class="select2-selection__rendered" id="select2-elementor-control-default-c1921-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder"></span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span>
+	</span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+</div>
+```
 
 num - number field type
 
