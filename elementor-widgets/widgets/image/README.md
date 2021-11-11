@@ -150,3 +150,10 @@ Your custom category **must** be set via constants file `constants.php` where se
     </fieldset>
 </form>
 ```
+
+# Field Types (controls)
+
+Definitions of the available field types, known as controls in the Elementor community.
+
+
+
