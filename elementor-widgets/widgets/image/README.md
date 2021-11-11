@@ -169,5 +169,30 @@ Output as
 ```html
 <textarea id="elementor-control-default-c1383" class="elementor-control-tag-area" rows="10" data-setting="layout" placeholder="">default value</textarea>
 ```
+list - standard select field
+list2 - select2 select field with search
+num - number field type
+date - output date picker
+hr - a horizontal ruler for separation
+color - color chooser
+radio - elemetor switcher
+check - standard checkbox
+rich - WYSIWYG editor
+img - image/media selector
+hidden - standard hidden field
+url - elemetor ulr function
+choose - elementor choose switch
+gal - elementor gallery
+anim - elementor animation
+icon - elementor icon selector
+code - code editor
+font - font selector
+repeat - repeater fields
+controlgroup - trigger group controls type
+typo - elementor typography group control
+border - border group control
+shadow - box shadow group controls
+shadowtext - text shadow group controls
+cssfilter - css filter group controls
 
 
