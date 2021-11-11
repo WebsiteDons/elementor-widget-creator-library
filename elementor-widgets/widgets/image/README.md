@@ -249,7 +249,17 @@ Output as
 ![Color picker Image](https://websitedons.net/assets/colorpick.jpg)
 
 ### radio
-elemetor switcher
+This displays as an on/off switch as a `<input type="checkbox" />` would, but called radio because it started as such as was just grand-fathered in
+
+Output as
+```html
+<label class="elementor-switch elementor-control-unit-2">
+	<input id="elementor-control-default-c3413" type="checkbox" data-setting="controls" class="elementor-switch-input" value="1">
+	<span class="elementor-switch-label" data-on="Yes" data-off="No"></span>
+	<span class="elementor-switch-handle"></span>
+</label>
+```
+![On Off Switch Image](https://websitedons.net/assets/radio.jpg)
 
 ### check
 standard checkbox
