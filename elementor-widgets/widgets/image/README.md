@@ -197,9 +197,22 @@ Output as
 ```
 ![Select2 Image](https://websitedons.net/assets/select2.jpg)
 
-num - number field type
+### num
+Standard number input field type
 
-date - output date picker
+Output as
+```html
+<input id="elementor-control-default-c1868" type="number" min="0" max="200" step="" class="tooltip-target elementor-control-tag-area elementor-control-unit-2" data-tooltip="" data-setting="btnsize" placeholder="" original-title="">
+```
+
+### date
+A dynamic date picker using vendor plugin Flatpickr
+
+Output as
+```html
+<input id="elementor-control-default-c2329" placeholder="08/16/2020" class="elementor-date-time-picker flatpickr flatpickr-input active" type="text" data-setting="endtime" readonly="readonly">
+```
+![Date picker Image](https://websitedons.net/assets/datepick.jpg)
 
 hr - a horizontal ruler for separation
 
