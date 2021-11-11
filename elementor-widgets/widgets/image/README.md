@@ -155,5 +155,13 @@ Your custom category **must** be set via constants file `constants.php` where se
 
 Definitions of the available field types, known as controls in the Elementor community.
 
+### text
+A default text input field that accepts attributes `hint` and `default`
+
+Output as
+```html
+<input id="elementor-control-default-c1356" type="text" class="tooltip-target elementor-control-tag-area" data-tooltip="" data-setting="streamurl" placeholder="https://streaming.radio.co/sf7fa724c2/listen" original-title="">
+```
+
 
 
