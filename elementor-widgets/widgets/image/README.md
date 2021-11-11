@@ -214,7 +214,22 @@ Output as
 ```
 ![Date picker Image](https://websitedons.net/assets/datepick.jpg)
 
-hr - a horizontal ruler for separation
+### hr
+Insert a horizontal line for visual separation
+
+Output as
+```html
+<div class="elementor-control elementor-control-hr3 elementor-control-type-divider elementor-label-inline elementor-control-separator-none">
+<div class="elementor-control-content"></div>
+</div>
+<!-- css rule -->
+.elementor-control.elementor-control-type-divider .elementor-control-content {
+    border: solid #e6e9ec;
+    border-width: 1px 0 0;
+    background-color: #fff;
+    height: 15px;
+}
+```
 
 color - color chooser
 
