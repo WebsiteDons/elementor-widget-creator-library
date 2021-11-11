@@ -95,9 +95,9 @@ Elementor icons at https://elementor.github.io/elementor-icons/
 | ![example-xml-field](https://github.com/WebsiteDons/elementor-widget-creator-library/blob/main/newly-added-widget.jpg?raw=true "Example output") | ![example-xml-field](https://github.com/WebsiteDons/elementor-widget-creator-library/blob/main/example-xml-field.jpg?raw=true "Example output") |
 
 
-### Comparison to PHP method
+### Comparison to PHP method (just the first text field)
 
-To get the same controls result using the PHP methods would be (just the first text field)
+To get the same controls result using the PHP methods would be quite complex and prone to errors if a character is wrong or missing.
 
 ```php
 protected function _register_controls() 
