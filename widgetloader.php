@@ -309,7 +309,7 @@ final class Cmse_Elementor_Widgets
 					}else{
 						$html = '<hr />';
 					}
-					$obj->add_control('hr2'.$i,[
+					$obj->add_control('hr'.$i,[
 					'type'=>$f->readme,
 					'raw'=>$html
 					]);
