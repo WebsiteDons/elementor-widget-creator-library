@@ -169,7 +169,17 @@ Output as
 ```html
 <textarea id="elementor-control-default-c1383" class="elementor-control-tag-area" rows="10" data-setting="layout" placeholder="">default value</textarea>
 ```
-list - standard select field
+### list
+A standard option select field
+
+Output as
+```html
+<select id="elementor-control-default-c1382" data-setting="layoutpreset">
+<option value="[aplayer]">Audio Player Only</option>
+<option value="[foot][aplayer][clock][/foot]">Fixed Foot Player</option>
+<option value="[schedulewrap][onair][schedule][/schedulewrap]">Schedule with on air</option>
+</select>
+```
 
 list2 - select2 select field with search
 
