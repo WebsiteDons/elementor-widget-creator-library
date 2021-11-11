@@ -316,3 +316,9 @@ text shadow group controls
 css filter group controls
 
 
+### table
+| n | t | r | p | g |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
