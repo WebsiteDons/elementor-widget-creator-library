@@ -195,6 +195,7 @@ Output as
 	</span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
 </div>
 ```
+![Select2 Image](https://websitedons.net/assets/select2.jpg)
 
 num - number field type
 
