@@ -112,6 +112,12 @@ Used to insert placeholder field attribute for types of text, textarea
 ```xml
 <field type="text" hint="eg: https://googly.com" />
 ```
+### title
+Used only with type **hr** to insert <h5> title within the separator line
+```xml
+<field type="hr" title="Tab Colors" />
+```
+![Separator Image](https://websitedons.net/assets/septitle.jpg)
 
 
 ## Fieldset Attributes
