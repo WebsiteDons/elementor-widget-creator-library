@@ -228,16 +228,28 @@ Insert a horizontal line for visual separation. This type only uses the attribut
 
 Output as
 ```html
-<div class="elementor-control elementor-control-hr3 elementor-control-type-divider elementor-label-inline elementor-control-separator-none">
-<div class="elementor-control-content"></div>
+<!-- as separator only -->
+<div class="elementor-control elementor-control-hr213 elementor-control-type-raw_html elementor-label-inline elementor-control-separator-default">
+	<div class="elementor-control-content">
+		<div class="elementor-control-raw-html ">
+			<hr>
+		</div>
+	</div>
 </div>
-<!-- css rule -->
-.elementor-control.elementor-control-type-divider .elementor-control-content {
-    border: solid #e6e9ec;
-    border-width: 1px 0 0;
-    background-color: #fff;
-    height: 15px;
-}
+<!-- with title attribute set -->
+<div class="elementor-control elementor-control-hr213 elementor-control-type-raw_html elementor-label-inline elementor-control-separator-default">
+	<div class="elementor-control-content">
+		<div class="elementor-control-raw-html ">
+			<div class="hrblock">
+				<h5>
+					<span><hr></span>
+					<span>Head</span>
+					<span><hr></span>
+				</h5>
+			</div>
+		</div>
+	</div>
+</div>
 ```
 
 ### color
