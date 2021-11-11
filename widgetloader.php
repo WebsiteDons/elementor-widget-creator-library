@@ -261,12 +261,18 @@ final class Cmse_Elementor_Widgets
 					add_action('elementor/editor/footer', function() use($change,$fname) 
 					{
 						list($target,$method) = explode(',',$change);
+						
+						if( $method == 'alert' ) {
+							$method = 'css("background","yellow")';
+						}else{
+							$method = 'val(opt)';
+						}
 						$js = '
 						<script>
 						jQuery(function($) {
 							$("#elementor-panel").on("change", ".elementor-control-'.$fname.'", function(e){
 								var opt = $(".elementor-control-'.$fname.' select").val();
-								$(".elementor-control-'.$target.' [data-setting='.$target.']").'.$method.'(opt).trigger("input");
+								$(".elementor-control-'.$target.' [data-setting='.$target.']").'.$method.'.trigger("input");
 							});
 						});
 						</script>
