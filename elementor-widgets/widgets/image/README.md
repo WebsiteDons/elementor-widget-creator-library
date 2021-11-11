@@ -113,7 +113,7 @@ Used to insert placeholder field attribute for types of text, textarea
 <field type="text" hint="eg: https://googly.com" />
 ```
 ### title
-Used only with type **hr** to insert <h5> title within the separator line
+Used only with type **hr** to insert `<h5>` title within the separator line
 ```xml
 <field type="hr" title="Tab Colors" />
 ```
