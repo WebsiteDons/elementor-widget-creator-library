@@ -3,7 +3,7 @@
 Plugin Name: CMSE Elementor Widget Developer Library
 Plugin URI: https://github.com/WebsiteDons/elementor-widget-creator-library
 Description: Develop widgets for Elementor with intuitive markup
-Version: 1.0.10
+Version: 1.0.11
 Author: CMSEnergizer.com
 Author URI: https://github.com/WebsiteDons/elementor-widget-creator-library
 Copyright 2014 CMSEnergizer.com
@@ -24,7 +24,7 @@ use \Elementor\Shapes;
 
 final class Cmse_Elementor_Widgets 
 {
-	const VERSION = '1.0.10';
+	const VERSION = '1.0.11';
 	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
 	const MINIMUM_PHP_VERSION = '7.0';
 
@@ -253,6 +253,28 @@ final class Cmse_Elementor_Widgets
 				$fv = self::fieldval($att);
 				$type = (string)$att->type;
 				$gtype = $fv->gtype;
+				
+				// action on select field change 
+				if( $type == 'list' && !empty($att->onchange) ) 
+				{
+					$change = (string)$att->onchange; $fname = $fv->name;
+					add_action('elementor/editor/footer', function() use($change,$fname) 
+					{
+						list($target,$method) = explode(',',$change);
+						$js = '
+						<script>
+						jQuery(function($) {
+							$("#elementor-panel").on("change", ".elementor-control-'.$fname.'", function(e){
+								var opt = $(".elementor-control-'.$fname.' select").val();
+								$(".elementor-control-'.$target.' [data-setting='.$target.']").'.$method.'(opt).trigger("input");
+							});
+						});
+						</script>
+						';
+						
+						echo $js;
+					});
+				}
 				
 				
 				## Do Controls
