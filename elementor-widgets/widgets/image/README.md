@@ -162,6 +162,12 @@ Output as
 ```html
 <input id="elementor-control-default-c1356" type="text" class="tooltip-target elementor-control-tag-area" data-tooltip="" data-setting="streamurl" placeholder="https://streaming.radio.co/sf7fa724c2/listen" original-title="">
 ```
+### textarea
+A default textarea input
 
+Output as
+```html
+<textarea id="elementor-control-default-c1383" class="elementor-control-tag-area" rows="10" data-setting="layout" placeholder="">default value</textarea>
+```
 
 
