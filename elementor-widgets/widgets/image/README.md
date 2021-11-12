@@ -337,6 +337,15 @@ Used to set repeater fields
 
 ### controlgroup
 trigger group controls type
+```xml
+<field 
+	type="controlgroup" 
+	gtype="bg" 
+	gtypes="classic,gradient" 
+	name="navbarbg" 
+	label="Nav Bar Background" 
+	/>
+```
 
 ### typo
 elementor typography group control
