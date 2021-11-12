@@ -151,11 +151,11 @@ Your custom category **must** be set via constants file `constants.php` where se
 ```
 
 ```xml
-<form icon="eicon-play-o" cat="my-wdgets-group">
+<widget icon="eicon-play-o" cat="my-wdgets-group">
     <fieldset>
         <field />
     </fieldset>
-</form>
+</widget>
 ```
 ![Custom Widget Category Image](https://websitedons.net/assets/customcat.jpg)
 
