@@ -135,8 +135,8 @@ The `<fieldset>` is required to create the accordion panels and create a wrapper
 ```
 ![Fieldset Note Image](https://websitedons.net/assets/fsetnote.jpg)
 
-## Form Attributes
-The `<form>` tag attributes creates the widget element in the widgets list
+## Widget Attributes
+The `<widget>` tag attributes creates the widget element in the widgets list
 ### icon, cat
 
 * The **icon** is to visually clarify the widget's purpose. A default is set in the constants. ![Get Elementor icons](https://elementor.github.io/elementor-icons/)
