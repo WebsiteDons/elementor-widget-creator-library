@@ -216,7 +216,7 @@ final class Cmse_Elementor_Widgets
 		$form = $formfile->attributes();
 		$icon = (string)$form->icon;
 		$cat = (string)$form->cat;
-		$fields= $tabstart= $tabend='';
+		
 		$f = self::ctr();
 		$rpt = new \Elementor\Repeater();
 		
