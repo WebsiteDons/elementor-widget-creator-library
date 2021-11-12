@@ -42,7 +42,7 @@ $const = (object)[
 ```
 
 ## Creating Widgets
-Add widgets to `wp-content/elementor-widgets/widgets` If a prefereed location is desired, be sure to set the path in the above noted constants
+Add widgets to `wp-content/elementor-widgets/widgets` If a prefereed location is desired, be sure to set the path in the above noted constants. All needed is to add a folder to the widgets folder and the library will create all the files. All you do next is edit the XML to add all the control fields desired and edit display.php to format the data in HTML and all supporting scripts (javascript / css).
 
 Each widget folder will consist of 2 files with exact matching names of the folder and one display ie: 
 * image
