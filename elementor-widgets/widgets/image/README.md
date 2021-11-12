@@ -132,14 +132,7 @@ Used only with type **hr** to insert `<h5>` title within the separator line
 ```
 ![Separator Image](https://websitedons.net/assets/septitle.jpg)
 
-### repeat
-Used to set repeater fields
-```xml
-<field type="repeat" name="navitems" titlefield="navlabel">
-	<repeat type="text" name="navlabel" label="The Label" />
-</field>
-```
-![Repeater Image](https://websitedons.net/assets/repeat.jpg)
+
 
 
 ## Fieldset Attributes
@@ -334,7 +327,13 @@ code editor
 font selector
 
 ### repeat
-repeater fields
+Used to set repeater fields
+```xml
+<field type="repeat" name="navitems" titlefield="navlabel">
+	<repeat type="text" name="navlabel" label="The Label" />
+</field>
+```
+![Repeater Image](https://websitedons.net/assets/repeat.jpg)
 
 ### controlgroup
 trigger group controls type
