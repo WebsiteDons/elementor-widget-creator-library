@@ -281,9 +281,6 @@ Output as
 ```
 ![On Off Switch Image](https://websitedons.net/assets/radio.jpg)
 
-### check
-standard checkbox
-
 ### rich
 WYSIWYG editor
 
