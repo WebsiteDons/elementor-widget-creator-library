@@ -1,3 +1,16 @@
+# XML Tags Tree
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<widget>
+	<fieldset>
+		<field type="" />
+		<field type="repeat">
+			<repeat type="" />
+		 </field>
+	</fieldset>
+</widget>
+```
+
 # XML Attributes
 **Impotant** where values must be passed as array to Elementor, the method is in JSON object format and **must** use **single quotes** as the delimiter, the obvious reason being that double quotes are used for the XML attributes and there will be conflict and error.  eg: `condition="{'the-keey': 'The Value'}"`
 
