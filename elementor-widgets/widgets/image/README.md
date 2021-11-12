@@ -157,6 +157,7 @@ Your custom category **must** be set via constants file `constants.php` where se
     </fieldset>
 </form>
 ```
+![Custom Widget Category Image](https://websitedons.net/assets/customcat.jpg)
 
 # Field Types (controls)
 
