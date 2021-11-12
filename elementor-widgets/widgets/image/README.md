@@ -284,7 +284,7 @@ Output as
 ![Color picker Image](https://websitedons.net/assets/colorpick.jpg)
 
 ### radio
-This displays as an on/off switch as a `<input type="checkbox" />` would, but called radio because it started as such as was just grand-fathered in
+This displays as an on/off switch as a `<input type="checkbox" />` would, but called radio because it started as such as was just grand-fathered in. This defaults to Yes / No label and value 1 / 0. Those defaults can be changed using `returnval="yes"` `labelon="Set On"` `labeloff="Set Off"`
 
 Output as
 ```html
