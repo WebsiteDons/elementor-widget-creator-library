@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<form icon="eicon-edit" cat="basic">
-  <fields>
+<widget icon="eicon-edit" cat="basic">
+  
     <fieldset id="panenewwidget" tab="tab" note="A note about this panel" label="New Wiget">
       <field 
         type="text" 
@@ -48,5 +48,5 @@
 		    label="Custom CSS"
 		    />
      </fieldset>
-  </fields>
-</form>
+  
+</widget>
