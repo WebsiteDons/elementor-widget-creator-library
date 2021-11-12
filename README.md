@@ -175,7 +175,6 @@ protected function _register_controls() {
 * hr - a horizontal ruler for separation
 * color - color chooser
 * radio - elemetor switcher
-* check - standard checkbox
 * rich - WYSIWYG editor
 * img - image/media selector
 * hidden - standard hidden field
