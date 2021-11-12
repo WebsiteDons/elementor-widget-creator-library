@@ -56,8 +56,8 @@ Each widget folder will consist of 2 files with exact matching names of the fold
  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<form icon="eicon-image" cat="basic">
- <fields>
+<widget icon="eicon-image" cat="basic">
+ 
   <fieldset id="animage" tab="tab" note="This is text description of the panel" label="An Image">
    <field 
    type="text" 
@@ -85,8 +85,8 @@ Each widget folder will consist of 2 files with exact matching names of the fold
    default="A default value" 
    />
   </fieldset>
- </fields>
-</form>
+ 
+</widget>
 ```
 Elementor icons at https://elementor.github.io/elementor-icons/
 
@@ -135,7 +135,7 @@ protected function _register_controls() {
 ## XML Markup Attributes
 ![See In Depth Details](https://github.com/WebsiteDons/elementor-widget-creator-library/tree/main/elementor-widgets/widgets/image#xml-attributes)
 
-**Form attribs**
+**Widget attribs**
 * icon - required to properly display the widget in the list (see above link for elementor icons)
 * cat - required to determine the panel section where the widget will display. 
     * Elementor core panel categories are - basic | pro-elements | general | wordpress | woocommerce-elements
