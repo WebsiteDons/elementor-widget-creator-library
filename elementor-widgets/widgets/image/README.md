@@ -119,6 +119,15 @@ Used only with type **hr** to insert `<h5>` title within the separator line
 ```
 ![Separator Image](https://websitedons.net/assets/septitle.jpg)
 
+### repeat
+Used to set repeater fields
+```xml
+<field type="repeat" name="navitems" titlefield="navlabel">
+	<repeat type="text" name="navlabel" label="The Label" />
+</field>
+```
+![Repeater Image](https://websitedons.net/assets/repeat.jpg)
+
 
 ## Fieldset Attributes
 The `<fieldset>` is required to create the accordion panels and create a wrapper around controls. It only uses the 4 listed below
