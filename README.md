@@ -97,7 +97,7 @@ Elementor icons at https://elementor.github.io/elementor-icons/
 
 ### Comparison to PHP method (just the first text field)
 
-To get the same controls result using the PHP methods would be quite complex and prone to errors if a character is wrong or missing.
+To get the same controls result using the PHP methods would be quite complex and prone to errors.
 
 ```php
 protected function _register_controls() 
