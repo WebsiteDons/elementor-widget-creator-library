@@ -1,10 +1,10 @@
 # XML Tags Structure
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<widget>
-	<fieldset>
-		<field type="" />
-		<field type="repeat">
+<widget icon="" cat="">
+	<fieldset id="" tab="" note="" label="">
+		<field type="" name="" label="" />
+		<field type="repeat" name="" titlefield="">
 			<repeat type="" />
 		 </field>
 	</fieldset>
