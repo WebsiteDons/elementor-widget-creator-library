@@ -3,7 +3,7 @@
 
 This class which serves as a simplified method to easily and quickly create widgets for WordPress page builder plugin called Elementor. Simply create widget form fields using a XML markup instead of writing complex PHP.
 
-## Method
+## Method using MU-PLUGINS
 * Place file `widgetloader.php` and `constants.php` in `wp-content/mu-plugins` to autoload the class.
 * Place directory `elementor-widgets` in `wp-content`
 
