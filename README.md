@@ -1,5 +1,5 @@
 # About This Class
-**This is not a plugin for a general user** It is for basic developers who wish to quickly create widgets specifically for Elementor without writing complex PHP coding.
+**This is not a plugin for a general user** It is for basic developers who wish to quickly create widgets specifically for Elementor without writing complex Elementor form controls PHP coding.
 
 This class which serves as a simplified method to easily and quickly create widgets for WordPress page builder plugin called Elementor. Simply create widget form fields using a XML markup instead of writing complex PHP.
 
