@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<form icon="eicon-post-list" cat="basic">
-  <fields>
+<widget icon="eicon-post-list" cat="basic">
+  
     <fieldset id="tabimage" tab="tab" note="This is text description of the panel" label="An Image">
       <field 
         type="text" 
@@ -168,5 +168,5 @@
 		    label="Custom CSS"
 		    />
      </fieldset>
-  </fields>
-</form>
+  
+</widget>
