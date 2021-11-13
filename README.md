@@ -102,14 +102,12 @@ To get the same controls result using the PHP methods would be quite complex and
 ```php
 protected function _register_controls() 
 {
-	$this->start_controls_section('animage',
-	[
+	$this->start_controls_section('animage',[
 	'label'=>'An Image',
 	'tab'=>\Elementor\Controls_Manager::TAB_CONTENT
 	]);
 	
-	$this->add_control('thefieldname', 
-	[
+	$this->add_control('thefieldname', [
 	'type' => \Elementor\Controls_Manager::TEXT,
 	'label' => 'Image Title',
 	'description' => 'Some details about the field',
