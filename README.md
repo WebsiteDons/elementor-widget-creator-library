@@ -1,5 +1,5 @@
 # About This Class
-**This is not a plugin for a general user** It is for basic developers who wish to quickly create widgets specifically for Elementor without writing complex Elementor form controls PHP coding.
+**This is not a plugin for a general user** It is for basic developers who wish to quickly create widgets specifically for ![Elementor](https://elementor.com) without writing complex Elementor form controls PHP coding.
 
 This class which serves as a simplified method to easily and quickly create widgets for WordPress page builder plugin called Elementor. Simply create widget form controls using XML markup instead of writing complex PHP.
 
@@ -49,11 +49,11 @@ Each widget folder will consist of 2 files with exact matching names of the fold
     * image.php
     * image.xml
     * display.php
- 
+
  See the included demo files `elementor-widgets/widgets/image`
- 
+
  ## XML Structure
- 
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <widget icon="eicon-image" cat="basic">
