@@ -133,7 +133,7 @@ protected function _register_controls() {
 ```
 
 ## XML Markup Attributes
-![See In Depth Details](https://github.com/WebsiteDons/elementor-widget-creator-library/tree/main/elementor-widgets/widgets/image#xml-attributes)
+[See In Depth Details](https://github.com/WebsiteDons/elementor-widget-creator-library/tree/main/elementor-widgets/widgets/image#xml-attributes)
 
 **Widget attribs**
 * icon - required to properly display the widget in the list (see above link for elementor icons)
