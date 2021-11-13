@@ -353,6 +353,17 @@ trigger group controls type
 ### typo
 elementor typography group control
 
+```xml
+<field
+       type="controlgroup"
+       gtype="typo"
+       name="navfont"
+       label="Menu Font"
+       />
+```
+
+
+
 ### border
 border group control
 
