@@ -8,7 +8,7 @@ This class which serves as a simplified method to easily and quickly create widg
 ## Page Menu
 
 * [MU-PLUGINS method](https://github.com/WebsiteDons/elementor-widget-creator-library#method-using-mu-plugins)
-* Distributable plugin method
+* [Distributable plugin method](https://github.com/WebsiteDons/elementor-widget-creator-library#creating-a-distributable-plugin)
 * [Creating Widgets](https://github.com/WebsiteDons/elementor-widget-creator-library#creating-widgets)
 * [XML Structure](https://github.com/WebsiteDons/elementor-widget-creator-library#xml-structure)
 * [XML Attributes](https://github.com/WebsiteDons/elementor-widget-creator-library#xml-markup-attributes)
