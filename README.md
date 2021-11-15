@@ -3,6 +3,22 @@
 
 This class which serves as a simplified method to easily and quickly create widgets for WordPress page builder plugin called Elementor. Simply create widget form controls using XML markup instead of writing complex PHP.
 
+---
+
+## Page Menu
+
+* MU-PLUGINS method
+* Distributable plugin method
+* Creating Widgets
+* XML Structure
+* XML Attributes
+* Field Types
+* Known errors
+
+---
+
+
+
 ## Method using MU-PLUGINS
 * Place file `widgetloader.php` and `constants.php` in `wp-content/mu-plugins` to autoload the class.
 * Place directory `elementor-widgets` in `wp-content`
@@ -11,7 +27,7 @@ If widgets are created for distribution via installable plugin, `widgetloader.ph
 
 That's it! All ready to use.
 
-## Notes
+### Notes
 If the directory paths will be changed from the default structure, edit `constants.php` and change the array values accordingly
 
 ```php
@@ -41,7 +57,10 @@ $const = (object)[
 	];
 ```
 
+
+
 ## Creating Widgets
+
 Add widgets to `wp-content/elementor-widgets/widgets` If a prefereed location is desired, be sure to set the path in the above noted constants. You only need to add a folder to the widgets folder and the library will create all the files. All you do next is edit the XML to add all the control fields desired and edit display.php to format the data in HTML and all supporting scripts (javascript / css).
 
 Each widget folder will consist of 2 files with exact matching names of the folder and one display ie: 
@@ -51,6 +70,8 @@ Each widget folder will consist of 2 files with exact matching names of the fold
     * display.php
 
  See the included demo files `elementor-widgets/widgets/image`
+
+
 
  ## XML Structure
 
@@ -130,7 +151,10 @@ protected function _register_controls() {
 }
 ```
 
+
+
 ## XML Markup Attributes
+
 [See In Depth Details](https://github.com/WebsiteDons/elementor-widget-creator-library/tree/main/elementor-widgets/widgets/image#xml-attributes)
 
 **Widget attribs**
