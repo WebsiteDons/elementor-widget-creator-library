@@ -260,15 +260,14 @@ If creating a distributable plugin, do not place the `widgetloader.php` file in 
 ```php
 <?php
 /**
-Plugin Name: My Great Plugin Name
-Plugin URI: https://mysite.com
-Description: A package of great Elementor widgets.
+Plugin Name: Your Elementor Widgets Builder
+Plugin URI: https://your-site.com
+Description: A library to make it simple to create widgets for Elementor page builder
 Version: 1.0.0
-Author: Me
-License:     GPLv2 or later
+Author: You
+TextDomain: plugin-domain
+License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-Requires at least: 4.9
-Requires PHP: 5.2.6
 */
 
 defined('ABSPATH') || exit('A message to bad guys who try to access this file directly');
