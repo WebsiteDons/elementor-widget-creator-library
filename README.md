@@ -342,7 +342,7 @@ public static function fields($xml,$obj)
 }
 ```
 
-Elementor method `add_control_to_stack()` at elementor/includes/managers/controls.php
+Elementor method `add_control_to_stack()` at elementor/includes/managers/controls.php : 666
 
 ```php
 public function add_control_to_stack( Controls_Stack $element, $control_id, $control_data, $options = [] ) {
