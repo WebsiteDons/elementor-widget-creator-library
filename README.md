@@ -273,7 +273,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 defined('ABSPATH') || exit('A message to bad guys who try to access this file directly');
 
 //load widgetloader class
-include_once __DIR__.'/includes/widgetloader.php';
+require_once __DIR__.'/includes/widgetloader.php';
 
 /*
 That's it!
