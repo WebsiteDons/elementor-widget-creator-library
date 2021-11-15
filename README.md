@@ -332,10 +332,11 @@ public static function fields($xml,$obj)
         $tabtype = (string)$fset->tab;
         $fsetnote = (isset($fset->note) ? '<div class="tabnote">'.(string)$fset->note.'</div>':null);
 
-        $obj->start_controls_section($fsetid,['label'=>$fsetlbl,'tab'=>$f->$tabtype]);
+        @$obj->start_controls_section($fsetid,['label'=>$fsetlbl,'tab'=>$f->$tabtype]);
         foreach($fieldset->field as $field) 
         {
             // control
+            $obj->add_control($fv->name,['type'=>$f->$type],['overwrite'=>true]);
         }
         $obj->end_controls_section();
     }
