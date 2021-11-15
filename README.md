@@ -10,9 +10,11 @@ This class which serves as a simplified method to easily and quickly create widg
 * [MU-PLUGINS method](https://github.com/WebsiteDons/elementor-widget-creator-library#method-using-mu-plugins)
 * [Distributable plugin method](https://github.com/WebsiteDons/elementor-widget-creator-library#creating-a-distributable-plugin)
 * [Creating Widgets](https://github.com/WebsiteDons/elementor-widget-creator-library#creating-widgets)
+* [Sample widget](https://github.com/WebsiteDons/elementor-widget-creator-library/tree/main/elementor-widgets/widgets/image)
 * [XML Structure](https://github.com/WebsiteDons/elementor-widget-creator-library#xml-structure)
 * [XML Attributes](https://github.com/WebsiteDons/elementor-widget-creator-library#xml-markup-attributes)
 * [Field Types](https://github.com/WebsiteDons/elementor-widget-creator-library#field-types)
+* [Auto widget generator](https://github.com/WebsiteDons/elementor-widget-creator-library/tree/main/copy)
 * [Known errors](https://github.com/WebsiteDons/elementor-widget-creator-library#known-errors)
 
 ---
