@@ -321,65 +321,65 @@ public function add_control_to_stack( Controls_Stack $element, $control_id, $con
 	$default_options = [
 		'overwrite' => false,
 		'index' => null,
-		];
+	];
 
-		$options = array_merge( $default_options, $options );
+	$options = array_merge( $default_options, $options );
 
-		$default_args = [
-			'type' => self::TEXT,
-			'tab' => self::TAB_CONTENT,
-		];
+	$default_args = [
+		'type' => self::TEXT,
+		'tab' => self::TAB_CONTENT,
+	];
 
-		$control_data['name'] = $control_id;
+	$control_data['name'] = $control_id;
 
-		$control_data = array_merge( $default_args, $control_data );
+	$control_data = array_merge( $default_args, $control_data );
 
-		$control_type_instance = $this->get_control( $control_data['type'] );
+	$control_type_instance = $this->get_control( $control_data['type'] );
 
-		if ( ! $control_type_instance ) {
-			_doing_it_wrong( sprintf( '%1$s::%2$s', __CLASS__, __FUNCTION__ ), sprintf( 'Control type "%s" not found.', esc_html( $control_data['type'] ) ), '1.0.0' );
-			return false;
-		}
-
-		if ( $control_type_instance instanceof Base_Data_Control ) {
-			$control_default_value = $control_type_instance->get_default_value();
-
-			if ( is_array( $control_default_value ) ) {
-				$control_data['default'] = isset( $control_data['default'] ) ? array_merge( $control_default_value, $control_data['default'] ) : $control_default_value;
-			} else {
-				$control_data['default'] = isset( $control_data['default'] ) ? $control_data['default'] : $control_default_value;
-			}
-		}
-
-		$stack_id = $element->get_unique_name();
-
-		if ( ! $options['overwrite'] && isset( $this->stacks[ $stack_id ]['controls'][ $control_id ] ) ) {
-			_doing_it_wrong( sprintf( '%1$s::%2$s', __CLASS__, __FUNCTION__ ), sprintf( 'Cannot redeclare control with same name "%s".', esc_html( $control_id ) ), '1.0.0' );
-
-			return false;
-		}
-
-		$tabs = self::get_tabs();
-
-		if ( ! isset( $tabs[ $control_data['tab'] ] ) ) {
-			$control_data['tab'] = $default_args['tab'];
-		}
-
-		$this->stacks[ $stack_id ]['tabs'][ $control_data['tab'] ] = $tabs[ $control_data['tab'] ];
-
-		$this->stacks[ $stack_id ]['controls'][ $control_id ] = $control_data;
-
-		if ( null !== $options['index'] ) {
-			$controls = $this->stacks[ $stack_id ]['controls'];
-
-			$controls_keys = array_keys( $controls );
-
-			array_splice( $controls_keys, $options['index'], 0, $control_id );
-
-			$this->stacks[ $stack_id ]['controls'] = array_merge( array_flip( $controls_keys ), $controls );
-		}
-
-		return true;
+	if ( ! $control_type_instance ) {
+		_doing_it_wrong( sprintf( '%1$s::%2$s', __CLASS__, __FUNCTION__ ), sprintf( 'Control type "%s" not found.', esc_html( $control_data['type'] ) ), '1.0.0' );
+		return false;
 	}
+
+	if ( $control_type_instance instanceof Base_Data_Control ) {
+		$control_default_value = $control_type_instance->get_default_value();
+
+		if ( is_array( $control_default_value ) ) {
+			$control_data['default'] = isset( $control_data['default'] ) ? array_merge( $control_default_value, $control_data['default'] ) : $control_default_value;
+		} else {
+			$control_data['default'] = isset( $control_data['default'] ) ? $control_data['default'] : $control_default_value;
+		}
+	}
+
+	$stack_id = $element->get_unique_name();
+
+	if ( ! $options['overwrite'] && isset( $this->stacks[ $stack_id ]['controls'][ $control_id ] ) ) {
+		_doing_it_wrong( sprintf( '%1$s::%2$s', __CLASS__, __FUNCTION__ ), sprintf( 'Cannot redeclare control with same name "%s".', esc_html( $control_id ) ), '1.0.0' );
+
+		return false;
+	}
+
+	$tabs = self::get_tabs();
+
+	if ( ! isset( $tabs[ $control_data['tab'] ] ) ) {
+		$control_data['tab'] = $default_args['tab'];
+	}
+
+	$this->stacks[ $stack_id ]['tabs'][ $control_data['tab'] ] = $tabs[ $control_data['tab'] ];
+
+	$this->stacks[ $stack_id ]['controls'][ $control_id ] = $control_data;
+
+	if ( null !== $options['index'] ) {
+		$controls = $this->stacks[ $stack_id ]['controls'];
+
+		$controls_keys = array_keys( $controls );
+
+		array_splice( $controls_keys, $options['index'], 0, $control_id );
+
+		$this->stacks[ $stack_id ]['controls'] = array_merge( array_flip( $controls_keys ), $controls );
+	}
+
+	return true;
+}
 ```
 
