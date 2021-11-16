@@ -1,22 +1,8 @@
 <?php
-/*
-Plugin Name: CMSE Elementor Widget Developer Library
-Plugin URI: https://github.com/WebsiteDons/elementor-widget-creator-library
-Description: Develop widgets for Elementor with intuitive markup
-Version: 1.0.14
-Author: CMSEnergizer.com
-Author URI: https://github.com/WebsiteDons/elementor-widget-creator-library
-Copyright 2014 CMSEnergizer.com
-https://developers.elementor.com/elementor-controls/
-*/
 
 defined('ABSPATH') || exit('CMSEnergizer.com');
 
-// make paths and variable changes in the loaded constants file.
-include_once __DIR__.'/constants.php';
-
-/*--- No need to edit below this line --*/
-
+require_once __DIR__.'/constants.php';
 
 // load shpaes class
 use \Elementor\Shapes;
@@ -24,7 +10,7 @@ use \Elementor\Shapes;
 
 final class Cmse_Elementor_Widgets 
 {
-	const VERSION = '1.0.14';
+	const VERSION = '1.0.17';
 	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
 	const MINIMUM_PHP_VERSION = '7.0';
 
@@ -59,25 +45,26 @@ final class Cmse_Elementor_Widgets
 						{
 							//make widget pilot file if not exists
 							if( !file_exists($cmse('widgetpath').$w.'/'.$w.'.php') ) {
-								$getfile = file_get_contents(__DIR__.'/copy/widget.php');
+								$getfile = file_get_contents(__DIR__.'/builder/widget.php');
 								$getfile = str_replace('widgetname', $w, $getfile);
 								file_put_contents($cmse('widgetpath').$w.'/'.$w.'.php', $getfile);
 							}
 							// make XML file if not exists
 							if( !file_exists($cmse('widgetpath').$w.'/'.$w.'.xml') ) {
-								$getfile = file_get_contents(__DIR__.'/copy/widget.xml');
+								$getfile = file_get_contents(__DIR__.'/builder/widget.xml');
 								$getfile = str_replace('basic', $cmse('panelid'), $getfile);
 								file_put_contents($cmse('widgetpath').$w.'/'.$w.'.xml', $getfile);
 							}
 							// make display file if not exists
 							if( !file_exists($cmse('widgetpath').$w.'/display.php') ) {
-								$getfile = file_get_contents(__DIR__.'/copy/display.php');
+								$getfile = file_get_contents(__DIR__.'/builder/display.php');
 								$getfile = str_replace('widgetname', $cmse('panelid'), $getfile);
 								file_put_contents($cmse('widgetpath').$w.'/display.php', $getfile);
 							}
+							
 							require_once($cmse('widgetpath').$w.'/'.$w.'.php');
 							$class = '\Cmse_'.$w.'_Widget';
-							$mgr->register_widget_type(new $class());
+							$mgr->register_widget_type(new $class);
 						}
 					});
 					
@@ -85,26 +72,13 @@ final class Cmse_Elementor_Widgets
 					add_action('elementor/elements/categories_registered', function($cat) 
 					{
 						global $cmse;
+						
 						$cat->add_category($cmse('panelid'),[
 						'title'=>$cmse('panelcat'),
 						'icon'=>$cmse('panelicon'),
 						'active'=>false
 						]);
 					});
-					
-					/* register custom controls if exists
-					See development docs at https://developers.elementor.com/creating-a-new-control/
-					*/
-					/*
-					add_action('elementor/controls/controls_registered', function() {
-						global $cmse;
-						if( file_exists($cmse('customcontrol').'/control.php') ) {
-							$mgr = \Elementor\Plugin::instance()->controls_manager;
-							require_once($cmse('customcontrol').'/control.php');
-							$mgr->register_control(\Cmse_FG::FG, new \Cmse_FG());
-						}
-					});
-					*/
 					
 					
 					/* add section separator custom shapes
@@ -115,10 +89,11 @@ final class Cmse_Elementor_Widgets
 					{
 						global $cmse;
 						$sep=[];
+						
 						if( file_exists($cmse('copydir')) )
 						{
 							$shapes = $this->filelist($cmse('copydir').'/','svg');
-						
+							
 							if( !empty($shapes) ) 
 							{
 								foreach($shapes as $shape)
@@ -181,6 +156,7 @@ final class Cmse_Elementor_Widgets
 		'radio'=>$e::SWITCHER,
 		'url'=>$e::URL,
 		'num'=>$e::NUMBER,
+		'repeat'=>$e::REPEATER,
 		'color'=>$e::COLOR,
 		'hidden'=>$e::HIDDEN,
 		'quad'=>$e::DIMENSIONS,
@@ -194,7 +170,6 @@ final class Cmse_Elementor_Widgets
 		'readme'=>$e::RAW_HTML,
 		'gal'=>$e::GALLERY,
 		'hr'=>$e::DIVIDER,
-		'repeat'=>$e::REPEATER,
 		// control groups
 		'bg'=>\Elementor\Group_Control_Background::get_type(),
 		'border'=>\Elementor\Group_Control_Border::get_type(),
@@ -202,11 +177,14 @@ final class Cmse_Elementor_Widgets
 		'shadowtxt'=>\Elementor\Group_Control_Text_Shadow::get_type(),
 		'typo'=>\Elementor\Group_Control_Typography::get_type(),
 		'cssfilter'=>\Elementor\Group_Control_Css_Filter::get_type(),
+		'imgsize'=>\Elementor\Group_Control_Image_Size::get_type(),
 		'rpt' => new \Elementor\Repeater()
 		];
 
 		return $v;
 	}
+	
+	
 
 	## Load Fields From XML Markup
 	public static function fields($xml,$obj)
@@ -216,7 +194,8 @@ final class Cmse_Elementor_Widgets
 		$form = $formfile->attributes();
 		$icon = (string)$form->icon;
 		$cat = (string)$form->cat;
-		
+		$keywords = (!empty($form->keywords) ? (string)$form->keywords : $cmse('keywords'));
+	
 		$f = self::ctr();
 		$rpt = new \Elementor\Repeater();
 		
@@ -228,10 +207,10 @@ final class Cmse_Elementor_Widgets
 			$tabtype = (string)$fset->tab;
 			$fsetnote = (isset($fset->note) ? '<div class="tabnote">'.(string)$fset->note.'</div>':null);
 	
-			$obj->start_controls_section($fsetid,['label'=>$fsetlbl,'tab'=>$f->$tabtype]);
+			@$obj->start_controls_section($fsetid,['label'=>$fsetlbl,'tab'=>$f->$tabtype]);
 			if( !empty($fsetnote) ) 
 			{
-				$obj->add_control($fsetid.'_note',['type'=>$f->readme,'raw'=>$fsetnote]);
+				$obj->add_control($fsetid.'_note',['type'=>$f->readme,'raw'=>$fsetnote],['overwrite'=>true]);
 				add_action('elementor/editor/footer', function() use($fsetid) 
 				{
 					echo '
@@ -256,68 +235,23 @@ final class Cmse_Elementor_Widgets
 				$type = (string)$att->type;
 				$gtype = $fv->gtype;
 				
-				// action on select field change 
-				if( $type == 'list' && !empty($att->onchange) ) 
-				{
-					$change = (string)$att->onchange; $fname = $fv->name;
-					add_action('elementor/editor/footer', function() use($change,$fname) 
-					{
-						list($target,$method) = explode(',',$change);
-						
-						if( $method == 'alert' ) {
-							$method = 'css("background","yellow")';
-						}else{
-							$method = 'val(opt)';
-						}
-						$js = '
-						<script>
-						jQuery(function($) {
-							$("#elementor-panel").on("change", ".elementor-control-'.$fname.'", function(e){
-								var opt = $(".elementor-control-'.$fname.' select").val();
-								$(".elementor-control-'.$target.' [data-setting='.$target.']").'.$method.'.trigger("input");
-							});
-						});
-						</script>
-						';
-						
-						echo $js;
-					});
-				}
-				
 				
 				## Do Controls
 				// group controls
 				if( $type == 'controlgroup' ) 
 				{
-					self::printFieldGroup($fv,$type,$gtype,$obj,$f);
+					self::controlGroup($fv,$type,$gtype,$obj,$f);
 				}
 				else
 				// horizontal line
-				if( $type == 'hr' ) 
-				{
-					if( isset($att->title) ) 
-					{
-						$html = '
-						<div class="hrblock">
-						<h5>
-						<span><hr /></span>
-						<span>'.(string)$att->title.'</span>
-						<span><hr /></span>
-						</h5>
-						</div>
-						';
-					}else{
-						$html = '<hr />';
-					}
-					$obj->add_control('hr'.$i,[
-					'type'=>$f->readme,
-					'raw'=>$html
-					]);
+				if( $type == 'hr' ) {
+					self::controlSep($fv,$obj,$f,$i);
 				}
 				else
 				// output HTML or plain text 
-				if( $type == 'readme' ) {
-					self::printFieldReadme($att, $type, $obj, $f, $i);
+				if( $type == 'readme' ) 
+				{
+					self::controlReadme($fv,$obj,$f,$i);
 				}
 				else
 				// repeat fields
@@ -335,19 +269,19 @@ final class Cmse_Elementor_Widgets
 					'show_label'=>$fv->showlabel,
 					'label'=>$fv->lbl,
 					'prevent_empty'=>false
-					]);
+					],['overwrite'=>true]);
 				}
 				else
 				// standard controls
 				{
-					self::printFieldStandard($fv,$type,$gtype,$obj,$f);
+					self::controlStandard($fv,$type,$gtype,$obj,$f);
 				}
 			}
 			
 			$obj->end_controls_section();
 		}
 		
-		return ['icon'=>$icon,'category'=>$cat];
+		return ['icon'=>$icon,'category'=>$cat,'keywords'=>$keywords];
 	}
 	
 	
@@ -366,29 +300,86 @@ final class Cmse_Elementor_Widgets
 			
 			if( $type == 'controlgroup' ) 
 			{
-				self::printFieldGroup($fv,$type,$gtype,$obj,$f);
+				self::controlGroup($fv,$type,$gtype,$obj,$f);
 			}
 			else
 			if( $type == 'hr' ) {
-				$obj->add_control('hr'.$i,['type'=>$f->hr]);
+				self::controlSep($fv,$obj,$f,$i);
 			}
 			else
 			// output HTML or plain text 
-			if( $type == 'readme' ) {
-				self::printFieldReadme($att, $type, $obj, $f, $i);
+			if( $type == 'readme' ) 
+			{
+				self::controlReadme($fv,$obj,$f,$i);
 			}
 			else
 			{
-				self::printFieldStandard($fv,$type,$gtype,$obj,$f);
+				self::controlStandard($fv,$type,$gtype,$obj,$f);
 			}
 		}
 	}
-	
+
 	
 	// standard controls printer
-	protected static function printFieldStandard($fv, $type, $gtype, $obj, $f) 
+	protected static function controlStandard($fv, $type, $gtype, $obj, $f) 
 	{
-		$obj->add_control($fv->name,[
+		$obj->add_control(
+		$fv->name,
+		self::args($fv, $type, $gtype, $obj, $f),
+		['overwrite'=>true]
+		);
+	}
+	
+	// group controls printer
+	protected static function controlGroup($fv, $type, $gtype, $obj, $f) 
+	{
+		@$obj->add_group_control(
+		$f->$gtype,
+		self::args($fv, $type, $gtype, $obj, $f),
+		['overwrite'=>true]
+		);
+	}
+	
+	// print readme field
+	protected static function controlReadme($fv, $obj, $f, $i) 
+	{
+		$obj->add_control('readme-'.(isset($fv->name) ? (string)$fv->name:$i),[
+		'type'=>$f->readme,
+		'raw'=>(string)$fv->note,
+		'content_classes'=>(isset($fv->class) ? (string)$fv->class:null),
+		'label'=>(isset($fv->label) ? (string)$fv->label:null)
+		],['overwrite'=>true]);
+	}
+	
+	// separator with title
+	protected static function controlSep($fv, $obj, $f, $i)
+	{
+		if( !empty($fv->title) ) 
+		{
+			$html = '
+			<div class="hrblock">
+			<h5>
+			<span class="line"><hr /></span>
+			<span>'.$fv->title.'</span>
+			<span class="line"><hr /></span>
+			</h5>
+			</div>
+			';
+		}else{
+			$html = '<hr />';
+		}
+		
+		$obj->add_control('hr-'.$i,[
+		'type'=>$f->readme,
+		'raw'=>$html
+		],['overwrite'=>true]);
+	}
+	
+	
+	// define controls attributes array 
+	protected static function args($fv, $type, $gtype, $obj, $f)
+	{
+		$args = [
 		'type'=>$f->$type,
 		'options'=>$fv->options,
 		'default'=>$fv->def,
@@ -396,6 +387,7 @@ final class Cmse_Elementor_Widgets
 		'label'=>$fv->lbl,
 		'description'=>$fv->note,
 		'selectors'=>$fv->selectors,
+		'selector'=>$fv->selector,
 		'separator'=>$fv->separator,
 		'picker_options'=>$fv->config,
 		'return_value'=>$fv->valueformat,
@@ -406,31 +398,12 @@ final class Cmse_Elementor_Widgets
 		'rows'=>$fv->rows,
 		'show_label'=>$fv->showlabel,
 		'show_external'=>$fv->extlink,
-		]);
-	}
-	
-	// group controls printer
-	protected static function printFieldGroup($fv, $type, $gtype, $obj, $f) 
-	{
-		$obj->add_group_control($f->$gtype,[
-		'name'=>$fv->name,
+		'size_units'=>$fv->unit,
 		'types' =>$fv->gtypes,
-		'label' =>$fv->lbl,
-		'description'=>$fv->note,
-		'selectors'=>$fv->selectors,
-		'separator'=>$fv->separator
-		]);
-	}
-	
-	// print readme field
-	protected static function printFieldReadme($fv, $type, $obj, $f, $num) 
-	{
-		$obj->add_control('readme-'.(isset($fv->name) ? (string)$fv->name:$num),[
-		'type'=>$f->readme,
-		'raw'=>(string)$fv->note,
-		'content_classes'=>(isset($fv->class) ? (string)$fv->class:null),
-		'label'=>(isset($fv->label) ? (string)$fv->label:null)
-		]);
+		'isLinked'=>$fv->linkunits
+		];
+		
+		return $args;
 	}
 	
 	// values processor
@@ -439,7 +412,7 @@ final class Cmse_Elementor_Widgets
 		$def=null;
 		if( isset($att->default) ) 
 		{
-			if( (string)$att->type == 'url' ) 
+			if( strstr((string)$att->default,'{') ) 
 			{
 				$def = self::stringToArray((string)$att->default);
 			}else{
@@ -448,15 +421,19 @@ final class Cmse_Elementor_Widgets
 		}
 		
 		$options='';
-		if( !empty($att->options) ) 
+		if( !empty($att->options) || ($att->type == 'choose' && empty($att->options)) ) 
 		{
-			$options = self::options((string)$att->options);
+			$options = self::options((string)$att->options,(string)$att->type);
 		}
 		
 		//selectors
-		$selectors=[];
+		$selectors=null;$selector=null;
 		if( isset($att->selectors) ) {
-			$selectors = self::stringToArray((string)$att->selectors);
+			if( strstr((string)$att->selectors,':') ) {
+				$selectors = self::stringToArray((string)$att->selectors);
+			}else{
+				$selector = (string)$att->selectors;
+			}
 		}
 		
 		//configs
@@ -476,7 +453,7 @@ final class Cmse_Elementor_Widgets
 			$condition = self::condition((string)$att->condition);
 		}
 		
-		// array of field types that will default to label_block
+		// array of field types that default to label_block
 		$blockdef = ['url','code','rich','textarea','text','img','icon','gal','quad'];
 			
 		$vals = (object)[
@@ -498,9 +475,13 @@ final class Cmse_Elementor_Widgets
 		'extlink'=> (isset($att->extlink) ? false:true),
 		'options'=>$options,
 		'selectors'=>$selectors,
+		'selector'=>$selector,
 		'config'=>$config,
 		'def'=>$def,
 		'condition'=>$condition,
+		'unit'=>(isset($att->unit) ? explode(',',(string)$att->unit):null),
+		'linkunits'=>(isset($att->linkunits) ? true:false),
+		'title'=>(!empty($att->title) ? (string)$att->title:null)
 		];
 		
 		return $vals;
