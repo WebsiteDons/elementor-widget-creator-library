@@ -413,3 +413,8 @@ public function add_control_to_stack( Controls_Stack $element, $control_id, $con
 }
 ```
 
+
+
+# Examples
+
+![example](https://websitedons.net/assets/sample1.jpg?raw=true "Example output")
