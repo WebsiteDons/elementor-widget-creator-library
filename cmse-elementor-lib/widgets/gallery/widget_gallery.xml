@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget icon="eicon-gallery-grid" cat="cmse-widgetcat" keywords="gallery,cmse">
+
+    <fieldset id="panel_gallery" tab="tab" note="wid head" label="Set Images">
+      <field 
+      type="gal" 
+      name="galimg" 
+      />
+	  <field 
+	  type="list" 
+	  name="imgsize" 
+	  options="{'thumbnail':'Small','medium':'Medium','full':'Fullsize'}" 
+	  default="medium" 
+	  label="Thumb Size" 
+	  />
+	  <field 
+	  type="num" 
+	  name="imgheight" 
+	  min="0" 
+	  note="Adds a mask to maintain even height" 
+	  selectors="{'{{WRAPPER}} .gallery-item span.gallery-icon':'height: {{VALUE}}px'}" 
+	  label="Image Height" 
+	  />
+	  <field 
+	  type="num" 
+	  name="column" 
+	  min="1" 
+	  max="12" 
+	  default="4" 
+	  label="Columns" 
+	  />
+	  <field 
+	  type="list" 
+	  name="sortby" 
+	  options="{'':'Default','ID':'Image ID','title':'Image Name','post_date':'Upload Date','rand':'Random'}" 
+	  default="" 
+	  label="Sort By" 
+	  />
+	  <field 
+	  type="list" 
+	  name="orderdir" 
+	  options="{'ASC':'Ascending','DESC':'Descending'}" 
+	  default="ASC" 
+	  label="Order Direction" 
+	  />
+	  <field 
+	  type="list" 
+	  name="linktype" 
+	  options="{'file':'Image File','attachment':'Image Page','none':'No Link'}" 
+	  default="file" 
+	  label="Image Link To" 
+	  />
+	  <field 
+	  type="url" 
+	  name="linkimages"  
+	  condition="{'linktype':'none'}" 
+	  note="This link will append to all images in the gallery" 
+	  label="Link Images" 
+	  />
+	  <field 
+	  type="radio" 
+	  name="showcaption" 
+	  default="1" 
+	  label="Show Caption" 
+	  />
+	  <field 
+	  type="hidden" 
+	  name="open_lightbox" 
+	  default="yes" 
+	  />
+	  <field 
+	  type="hidden" 
+	  name="view" 
+	  default="traditional" 
+	  />
+     </fieldset>
+	  
+     <!-- STYLE tab group -->
+     <fieldset id="panenewstyle" tab="tabstyle" label="Item Styling">
+	     <field 
+		 type="list" 
+		 name="template" 
+		 options="{'pol':'Polaroid','kod':'Vintage Kodak','scat':'Scattered','masonry':'Masonry'}" 
+		 default="pol" 
+		 label="Template" 
+		 />
+	     <field 
+		 type="controlgroup" 
+		 gtype="typo" 
+		 name="capfont" 
+		 selectors="{{WRAPPER}} p.gallery-caption" 
+		 label="Caption Font" 
+		 />
+		 
+		 <field type="hr" title="Background" />
+		 <field 
+		 type="controlgroup" 
+		 gtype="bg" 
+		 gtypes="classic,gradient" 
+		 name="galitembg" 
+		 selectors="{{WRAPPER}} .gallery-item .inner" 
+		 label="Inner Background" 
+		 />
+		 
+		 <field type="hr" title="Border" />
+		 <field 
+		 type="controlgroup" 
+		 gtype="border" 
+		 name="inborder" 
+		 selectors="{{WRAPPER}} .gallery-item .inner" 
+		 label="Inner Border" 
+		 />
+		 
+		 <field type="hr" title="Corners" />
+	     <field 
+		 type="slider" 
+		 name="radborder" 
+		 unit="px,%" 
+		 label="Item Container Radius" 
+		 labelblock="1" 
+		 selectors="{
+		 '{{WRAPPER}} .gallery-item .inner':'border-radius: {{SIZE}}{{UNIT}}'
+		 }"
+		 />
+		 <field 
+		 type="slider" 
+		 name="imgborder" 
+		 unit="px,%" 
+		 label="Image Radius" 
+		 labelblock="1" 
+		 selectors="{
+		 '{{WRAPPER}} .gallery-item .gallery-icon':'border-radius: {{SIZE}}{{UNIT}}',
+		 '{{WRAPPER}} .gallery-item .gallery-icon img':'border-radius: {{SIZE}}{{UNIT}}'
+		 }"
+		 />
+		 
+		 <field type="hr" title="Padding" />
+	     <field 
+		 type="quad" 
+		 name="padinner" 
+		 unit="px,%" 
+		 label="Item Container Padding" 
+		 selectors="{
+		 '{{WRAPPER}} .gallery-item .inner':'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}'
+		 }"
+		 />
+		 <field 
+		 type="quad" 
+		 name="margininner" 
+		 unit="px,%" 
+		 label="Item Container Margin" 
+		 selectors="{
+		 '{{WRAPPER}} .gallery-item .inner':'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}'
+		 }"
+		 />
+		 <field type="hr" title="Box Shadow" />
+		 <field 
+		 type="controlgroup" 
+		 gtype="shadow" 
+		 name="itemshadow" 
+		 selectors="{{WRAPPER}} .gallery-item .inner" 
+		 label="Item Container Shadow" 
+		 />
+	</fieldset>
+		 
+	<fieldset id="panecustomcss" tab="tabstyle" label="Custom CSS">
+		<field 
+		type="code" 
+		name="customcss" 
+		/>
+	</fieldset>
+
+</widget>

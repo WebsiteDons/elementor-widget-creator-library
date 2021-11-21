@@ -1,0 +1,25 @@
+.tabnote {
+	padding: 8px;
+	background: #fcf8ea;
+}
+
+.hrblock {display: table; width: 100%;}
+.hrblock h5 {display: table-row;}
+.hrblock h5 span {
+	display: table-cell;
+	width: 40%;
+	vertical-align: middle;
+	text-align: center;
+	font-weight: 900;
+}
+.hrblock h5 span.line {width: 30%;}
+.hrblock h5 span.line hr {
+	border: 0;
+	border-top: 1px solid #ddd;
+}
+
+div[class*="-hr-"],
+div[class*="_note"] {
+	padding-left: 0;
+	padding-right: 0;
+}
