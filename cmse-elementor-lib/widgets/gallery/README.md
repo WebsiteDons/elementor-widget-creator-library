@@ -26,7 +26,7 @@ The value is passed to Elementor's preview update to apply the CSS changes as ma
 ```xml
 <field selectors="{'{{WRAPPER}} .myclass': 'color: {{VALUE}}'}" />
 ```
-Output as
+Output as 
 ```php
 Array
 (
