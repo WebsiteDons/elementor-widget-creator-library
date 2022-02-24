@@ -6,6 +6,11 @@ require_once __DIR__.'/constants.php';
 
 // load shpaes class
 use \Elementor\Shapes;
+use \Elementor\Core\Schemes\Color;
+use \Elementor\Core\Schemes\Typography;
+use \Elementor\Utils;
+use \Elementor\Controls_Stack;
+use \Elementor\Plugin;
 
 
 final class Cmse_Elementor_Widgets 
@@ -198,7 +203,6 @@ final class Cmse_Elementor_Widgets
 		$keywords = (!empty($form->keywords) ? (string)$form->keywords : $cmse('keywords'));
 	
 		$f = self::ctr();
-		$rpt = new \Elementor\Repeater();
 		
 		foreach($formfile->fieldset as $fieldset)
 		{
@@ -258,6 +262,7 @@ final class Cmse_Elementor_Widgets
 				// repeat fields
 				if( $type == 'repeat' ) 
 				{
+					$rpt = new \Elementor\Repeater();
 					self::repeat($field->repeat, $rpt, $f);
 					
 					$titlefield = (isset($att->titlefield) ? '{{{'.(string)$att->titlefield.'}}}':null);
